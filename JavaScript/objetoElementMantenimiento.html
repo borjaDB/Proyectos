@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+
+        <meta charset="UTF-8">
+
+    <title>Ejemplo creación árbol DOM</title>
+    <script>
+        //2.- Muestra el padre de cada uno de los elementos parrafo y contenedor. Quién es el padre de la etiqueta html?
+        function compruebaPadreContenedor(){
+        var contenedorPadre = document.getElementById("contenedor").parentNode;
+        document.getElementById("contenedor").innerHTML = contenedorPadre;
+        }
+        function compruebaPadreParrafo(){
+        var contenedorParrafo = document.getElementById("parrafo").parentNode;
+        document.getElementById("parrafo").innerHTML = contenedorParrafo;
+        }
+        //3.- Muestra los hijos de:
+
+          //  a) documento
+        function compruebaHijosDocumento(){
+            var hijosDoc = document.getElementsByTagName("html")[0].childNodes;
+            
+            var txt="";
+            for(var i=0; i<hijosDoc.length; i++){
+                  txt = txt + hijosDoc[i].nodeName + "<br>";
+            }
+              document.getElementById("respuestaA").innerHTML = txt;
+        }
+
+          // b) cuerpo del documento. Lo hacemos de manera diferente:
+           function compruebaCuerpoDocumento(){
+            var hijosDoc = document.body.childNodes;
+            
+            var txt="";
+            for(var i=0; i<hijosDoc.length; i++){
+                  txt = txt + hijosDoc[i].nodeName + "<br>";
+            }
+              document.getElementById("respuestaB").innerHTML = txt;
+        }
+          // c) contenedor
+           // b) cuerpo del documento. Lo hacemos de manera diferente:
+           function compruebaCuerpoDocumento(){
+            var hijosDoc = document.body.childNodes;
+            
+            var txt="";
+            for(var i=0; i<hijosDoc.length; i++){
+                  txt = txt + hijosDoc[i].nodeName + "<br>";
+            }
+              document.getElementById("respuestaC").innerHTML = txt;
+        }  
+
+          // d) parrafo
+                function compruebaCuerpoDocumento(){
+            var hijosDoc = document.body.childNodes;
+            
+            var txt="";
+            for(var i=0; i<hijosDoc.length; i++){
+                  txt = txt + hijosDoc[i].nodeName + "<br>";
+            }
+              document.getElementById("respuestaD").innerHTML = txt;
+        }  
+
+        
+    </script>
+
+    </head>
+
+    <body>
+        <button onclick="compruebaPadreContenedor()">Comprueba elemento padre de contenedor</button></br>
+        <button onclick="compruebaPadreParrafo()"> Comprobar elementos padre de parrafo </button></br>
+        <button onclick="compruebaHijosDocumento()"> Comprueba los hijos de documento</button></br>
+        <button onclick="compruebaCuerpoDocumento()"> Comprueba los hijos de cuerpo</button></br>
+        
+        <div id="contenedor">
+            <p id="parrafo">Ejemplo</p>      
+        </div>
+        
+      
+        
+        <p id="respuestaA"></p>
+        <p id="respuestaB"></p>
+        <p id="respuestaC"></p>
+        <p id="respuestaD"></p>
+        
+        
+    </body>
+
+</html>
