@@ -17,6 +17,7 @@
         var contenedorParrafo = document.getElementById("parrafo").parentNode;
         document.getElementById("parrafo").innerHTML = contenedorParrafo;
         }
+////////////////////////////////////////////////////////////////////////////////        
         //3.- Muestra los hijos de:
 
           //  a) documento
@@ -30,8 +31,8 @@
               document.getElementById("respuestaA").innerHTML = txt;
         }
 
-          // b) cuerpo del documento. Lo hacemos de manera diferente:
-           function compruebaCuerpoDocumento(){
+          // b) cuerpo del documento
+           function compruebaHijosCuerpo(){
             var hijosDoc = document.body.childNodes;
             
             var txt="";
@@ -41,27 +42,83 @@
               document.getElementById("respuestaB").innerHTML = txt;
         }
           // c) contenedor
-           // b) cuerpo del documento. Lo hacemos de manera diferente:
-           function compruebaCuerpoDocumento(){
-            var hijosDoc = document.body.childNodes;
+            function compruebaHijosContenedor(){
+            var hijosDoc = document.getElementById("contenedor").childNodes;
             
             var txt="";
             for(var i=0; i<hijosDoc.length; i++){
                   txt = txt + hijosDoc[i].nodeName + "<br>";
             }
               document.getElementById("respuestaC").innerHTML = txt;
-        }  
-
+        }
           // d) parrafo
-                function compruebaCuerpoDocumento(){
-            var hijosDoc = document.body.childNodes;
+             function compruebaHijosParrafo(){
+            var hijosDoc = document.getElementById("parrafo").childNodes;
             
             var txt="";
             for(var i=0; i<hijosDoc.length; i++){
                   txt = txt + hijosDoc[i].nodeName + "<br>";
             }
               document.getElementById("respuestaD").innerHTML = txt;
-        }  
+        }
+////////////////////////////////////////////////////////////////////////////////
+           ///4.- Idem anterior, pero en este caso mostrando los hermanos
+           //  a) documento
+        function compruebaHermanosDocumento(){
+            var hijosDoc = document.getElementsByTagName("html")[0];
+            
+            var txt="";
+            for(var i=0; i<hijosDoc.length; i++){
+                  txt = txt + hijosDoc[i].nodeName + "<br>";
+            }
+              document.getElementById("respuestaA").innerHTML = txt;
+        }
+
+          // b) cuerpo del documento
+           function compruebaHermanosCuerpo(){
+            var hijosDoc = document.body.nextSibling;
+            
+            var txt="";
+            for(var i=0; i<hijosDoc.length; i++){
+                  txt = txt + hijosDoc[i].nodeName + "<br>";
+            }
+              document.getElementById("respuestaB").innerHTML = txt;
+        }
+          // c) contenedor
+            function compruebaHermanosContenedor(){
+                var el = document.getElementById("contenedor").nextElementSibling;
+                var  i = 1;
+
+                while (el) {
+                  console.log(i + '. ' + el.nodeName);
+                  el = el.nextSibling;
+                  i++;                
+                }
+           
+            }
+          // d) parrafo
+             function compruebaHermanosParrafo(){
+            var hijosDoc = document.getElementById("parrafo").nextElementSibling;
+            
+            var txt="";
+            for(var i=0; i<hijosDoc.length; i++){
+                  txt = txt + hijosDoc[i].nodeName + "<br>";
+            }
+              document.getElementById("respuestaD").innerHTML = txt;
+        }
+////////////////////////////////////////////////////////////////////////////////
+        //5.- Añade un elemento h1 al documento con el texto “Título”. 
+        //Comprueba cómo se modifica el árbol y actualiza su representación.
+            function addElement(){
+            var nuevoHuno = document.createElement("h1");
+            var nuevoContenido = document.createTextNode("Esto es una prueba introduciendo texto");
+            nuevoHuno.appendChild(nuevoContenido);
+            
+            var padre = document.getElementsByTagName("html")[0];
+            // Añadir el nodo Element como hijo de la pagina
+            padre.appendChild(nuevoHuno);    
+            }
+////////////////////////////////////////////////////////////////////////////////
 
         
     </script>
@@ -69,23 +126,38 @@
     </head>
 
     <body>
+        <!--2 padres-->
         <button onclick="compruebaPadreContenedor()">Comprueba elemento padre de contenedor</button></br>
         <button onclick="compruebaPadreParrafo()"> Comprobar elementos padre de parrafo </button></br>
+        <!--3 hijos-->
         <button onclick="compruebaHijosDocumento()"> Comprueba los hijos de documento</button></br>
         <button onclick="compruebaCuerpoDocumento()"> Comprueba los hijos de cuerpo</button></br>
+        <button onclick="compruebaHijosContenedor()"> Comprueba los hijos de contenedor</button></br>
+        <button onclick="compruebaHijosParrafo()"> Comprueba los hijos de parrafo</button></br>
+        
+        <!--4 hermanos-->
+        <button onclick="compruebaHermanosDocumento()"> Comprueba los hermanos de documento</button></br>
+        <button onclick="compruebaHermanosCuerpo()"> Comprueba los hermanos de cuerpo</button></br>
+        <button onclick="compruebaHermanosContenedor()"> Comprueba los hermanos de contenedor</button></br>
+        <button onclick="compruebaHermanosParrafo()"> Comprueba los hermanos de parrafo</button></br>
+        <!--5 añadir un elemento-->
+        <button onclick="addElement()">Añade elemento</button></br>
         
         <div id="contenedor">
             <p id="parrafo">Ejemplo</p>      
         </div>
-        
-      
         
         <p id="respuestaA"></p>
         <p id="respuestaB"></p>
         <p id="respuestaC"></p>
         <p id="respuestaD"></p>
         
+      
+       
+        
         
     </body>
 
 </html>
+
+            
