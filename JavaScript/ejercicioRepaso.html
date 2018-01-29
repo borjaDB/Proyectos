@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+Se deberá crear un objeto imagen/foto para almacenar para cada una de las imágenes con la siguiente información
+
+- Nombre del archivo fuente para la imagen (ruta local a tu equipo).
+
+- Título: Título descriptivo para la imagen a mostrar.
+
+- Descripción: breve información sobre la imagen que se muestra.
+
+El objeto ha de tener una función constructor para su creación.
+
+Para poder disponer de varias imágenes a mostrar en la galería se creará un array de imágenes. 
+
+Crear una función externa al objeto para avanzar hacia delante o hacia atrás, de manera que se ejecuten cuando se haga click en alguno de los botones para recorrer la galería.
+
+Presentación: puede ser de ayuda el uso de una tabla para separar los distintos tipos de información a mostrar. Observar que se quiere mostrar por un lado la imagen y por otro al lado tanto el título como la descripción de cada una de ellas.
+-->
+<html>
+    <head>
+        <title>ejercicioRepaso</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+          
+            function add(){
+            var galeria= [
+                {titulo:"torre", descripcion:"torre de hercules"},
+                {titulo:"estadio", descripcion:"estadio de riazor"}
+                ];
+            var i =0;
+            
+                while(i<galeria.length){
+                    alert(galeria[i].titulo);
+                    i++;
+                }
+            }   
+            
+        </script>
+        
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <button onclick="add()">Añade elemento</button></br>
+    </body>
+</html>
