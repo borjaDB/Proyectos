@@ -22,28 +22,22 @@ Presentación: puede ser de ayuda el uso de una tabla para separar los distintos
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script>
-          
+			
+			var galeria= new Array();
             function add(){
-            var galeria= [
-                {titulo:"torre", descripcion:"torre de hercules", imagen:"./img/001.jpg"},
-                {titulo:"estadio", descripcion:"estadio de riazor", imagen:"./img/001.jpg"}
-                ];
-				
-				var imagen = document.getElementById("imagen");     
-				document.imagen.src = "./img/001.jpg";
-			}
-            //var i =0;
-                //while(i<galeria.length){
-				
-                    //alert(galeria[i].titulo);
-                    //i++;
-                //}     
+			var uno = new Image();
+            uno.src="./img/001.jpg";
+                
+				var x = document.uno.src;
+				document.getElementById("img").innerHTML = x;
+			}  
         </script>
         
     </head>
     <body>
         <div>TODO write content</div>
         <button onclick="add()">Añade elemento</button></br>
-		<img name="imagen" id="imagen" alt="imagenes">
+		<img name="imagen" id="img" alt="imagenes">
     </body>
 </html>
+
