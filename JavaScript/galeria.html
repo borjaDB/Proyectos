@@ -1,43 +1,63 @@
 <!DOCTYPE html>
 <!--
-Se deberá crear un objeto imagen/foto para almacenar para cada una de las imágenes con la siguiente información
-
-- Nombre del archivo fuente para la imagen (ruta local a tu equipo).
-
-- Título: Título descriptivo para la imagen a mostrar.
-
-- Descripción: breve información sobre la imagen que se muestra.
-
-El objeto ha de tener una función constructor para su creación.
-
-Para poder disponer de varias imágenes a mostrar en la galería se creará un array de imágenes. 
-
-Crear una función externa al objeto para avanzar hacia delante o hacia atrás, de manera que se ejecuten cuando se haga click en alguno de los botones para recorrer la galería.
-
-Presentación: puede ser de ayuda el uso de una tabla para separar los distintos tipos de información a mostrar. Observar que se quiere mostrar por un lado la imagen y por otro al lado tanto el título como la descripción de cada una de ellas.
+Se indicarán aquí las condiciones de la galeria.
 -->
 <html>
     <head>
         <title>ejercicioRepaso</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script>
-			
-			var galeria= new Array();
-            function add(){
-			var uno = new Image();
-            uno.src="./img/001.jpg";
-                
-				var x = document.uno.src;
-				document.getElementById("img").innerHTML = x;
-			}  
-        </script>
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     </head>
     <body>
         <div>TODO write content</div>
-        <button onclick="add()">Añade elemento</button></br>
-		<img name="imagen" id="img" alt="imagenes">
+		<img id="img"/>
+		<a id="titulo"></a></br>
+		<button onclick="back()">Back</button>
+		<button onclick="mod()">Modificar</button>
+		<button onclick="next()">Next</button>
+		
+		<script>
+			var galeria= new Array();
+			var cont = 0;
+			
+			function Imagen(titulo, enlace){
+				this.titulo = titulo;
+				this.enlace = enlace;
+			}
+			
+			galeria[0] = new  Imagen("Torre", "./img/001.jpg");
+			galeria[1] = new  Imagen("Sta Cristina", "./img/002.jpg");
+			galeria[2] = new  Imagen("Aeropuerto", "./img/003.jpg");
+			
+			document.getElementById("img").src = galeria[0].enlace;
+			document.getElementById("titulo").innerHTML = galeria[0].titulo;
+			
+			//Si la galeria llega al final se inicializa a la primera posición
+			function next(){
+			cont = cont + 1;
+			if(cont==galeria.length){
+				cont=0;
+			}
+			mover(cont);	
+			}
+			//Si la galeria es 0 inicia el contador hasta la última posición del array
+			function back(){
+			cont = cont - 1;
+			if(cont == galeria.indexOf(0)){
+				cont=2;
+			}	
+			mover(cont);
+			}
+			
+			function mover(x){
+				document.getElementById("img").src = galeria[x].enlace;
+				document.getElementById("titulo").innerHTML = galeria[x].titulo;
+			}
+			
+			function mod(){
+				window.open(nueva.html);
+			}
+			 
+        </script>
     </body>
 </html>
-
