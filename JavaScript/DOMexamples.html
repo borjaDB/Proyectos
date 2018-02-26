@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--
+1. Supongamos el siguiente esquema del DOM de un documento HTML:
+-->
+<html>
+    <head>
+        <title>Texto titulo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+             #menu .item span
+             .fondo1 {
+                background: blue;
+                color: white;
+            }           
+            .fondo2 {
+                background: red;
+                color: blue;
+            }    
+            .titulo{
+                background: red;
+                color: blue;
+            }
+            .bordeado{
+                background: yellow;
+                color: pink;
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+        <div id="menu">
+            <div class="item">
+                <span> Elemento 1 </ span>
+                <span> Elemento 2 </ span>
+            </div>
+        <div class="publicidad">
+            <span id="prueba"> Elemento 3 </ span>
+            <span> Elemento 4 </ span>
+        </div>
+        </div>
+        <div id="contenido">
+            <span> Introducción a contenido de la página ... </ span>
+        </div>
+        <script>
+            var query = document.querySelector("#menu .item span"),
+            queryAll = document.querySelectorAll("#menu .item span");
+            alert (query.innerHTML);
+            alert (queryAll.length);
+            alert(queryAll[0].innerHTML + ' - ' + queryAll[1].innerHTML);
+            var x = document.getElementById("prueba")
+        </script>
+       -->
+       <!--Ejercicio 5
+       <a id="enlace" href="http://www.google.com">Ejemplo enlace</a>
+       <script>
+           alert(enlace.href);
+           enlace.href="http://www.google.es";
+       </script>
+       
+        <div id="pruebaColor" class=”fondo1 titulo bordeado">
+            <p> un poco de texto <a> y un enlace </ a></p>
+        </div>
+       
+       <script>
+           document.getElementById("pruebaColor").className="fondo2";
+       </script>
+        -->
+        <!-- Ejercicio 6
+        <a id=estilos class="fondo1 titulo bordeado">prueba de cambio</a>
+        <script>
+            var x = document.getElementById("estilos");
+            x.classList.remove("fondo1");
+            x.classList.add("fondo2");
+            alert(x.classList);
+        </script>
+        -->
+        <!-- ejercicio 2
+        <div id="dvision">
+            <p>Texto
+                <a>enlace</a>
+            </p>
+        </div>
+        <script>
+            var div = document.getElementById("division");
+            alert(div);
+        </script>
+        -->
+        <p id="parrafo1">Texto, <a>enlace </a> <strong>Strong </strong> </p>
+        
+        <script>
+            var parrafo = document.getElementById ("parrafo1");
+            var primero = parrafo.firstChild;
+            var ultimo = parrafo.lastChild;
+            alert (primero.nodeName.toLowerCase());
+            alert (ultimo.nodeName.toLowerCase());
+    
+        </script>
+    </body>
+</html>
