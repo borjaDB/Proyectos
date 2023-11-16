@@ -6,7 +6,6 @@ import javax.ejb.Stateless;
 
 @Stateles
 @LocalBean
-
 public class BeanLocal {
 
     public int suma(int numero) {  
